@@ -25,7 +25,9 @@ class WebInputRumah extends Controller
                 break;
 
             default:
-                return view('dashboard.web-component.input-rumah-dijual');
+                $info['marketer'] = DB::table('ms_marketer')->get()->toArray();
+                $info['lister'] = DB::table('ms_lister')->get()->toArray();
+                return view('dashboard.web-component.input-rumah-dijual')->with('info',$info);
                 break;
         }
     }
@@ -74,6 +76,9 @@ class WebInputRumah extends Controller
 
             $rumah = new webRumahDijual();
             $rumah->id_lister = $request->id_lister;
+            $rumah->id_marketer = $request->id_marketer;
+            $rumah->tipe_biaya = $request->tipe_biaya;
+            $rumah->jenis_properti = $request->jenis_properti;
             $rumah->nama_rumah = $request->nama_rumah;
             $rumah->lokasi = $request->lokasi;
             $rumah->detail = $request->detail;
@@ -91,10 +96,10 @@ class WebInputRumah extends Controller
             $rumah->listrik = $request->listrik;
             $rumah->furniture = $request->furniture;
             $rumah->save();
-            return 'success';
         } catch (\Exception $ex) {
-            return response()->json($ex);
+            dd('Exception Block',$ex);
         }
+        return 'success';
     }
 
     public function edit() {}

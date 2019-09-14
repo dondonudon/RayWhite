@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Controllers\OpenFunction\webInfo;
+use App\msLister;
+use App\msMarketer;
 use App\webRumahDijual;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,30 +13,41 @@ use Illuminate\Support\Facades\DB;
 class ListRumah extends Controller
 {
     public function index() {
-        $generalInfo = DB::table('web_general_info')
-            ->select('web_general_info.section', 'web_general_info.area', 'web_general_info.type', 'web_general_info.data', 'web_image.filename')
-            ->leftJoin('web_image','web_general_info.section','=','web_image.section')
-            ->get();
-        foreach ($generalInfo as $c) {
-            if ($c->section == 'contact-us') {
-                $result['contact-us'][$c->area] = $c->data;
-            } else {
-                $result[$c->section] = [
-                    'area' => $c->area,
-                    'type' => $c->type,
-                    'data' => $c->data,
-                    'filename' => $c->filename,
-                ];
-            }
+        $filter['marketer'] = msMarketer::all();
+        $result = webInfo::webInformation('all');
+        return view('home.rumah.list')
+            ->with('info',$result)
+            ->with('filter',$filter);
+    }
+
+    public function getRumah(Request $request) {
+        $where[] = ['status','=',0];
+        if ($request->area !== 'all') {
+            $where[] = ['area','=',$request->area];
+        }
+        if ($request->marketer !== 'all') {
+            $where[] = ['id_marketer','=',$request->marketer];
+        }
+        if ($request->jual_sewa !== 'all') {
+            $where[] = ['tipe_biaya','=',$request->jual_sewa];
+        }
+        if ($request->min_price !== null) {
+            $where[] = ['harga','>',$request->min_price];
+        }
+        if ($request->max_price !== null) {
+            $where[] = ['harga','<',$request->max_price];
+        }
+        if ($request->properti !== 'all') {
+            $where[] = ['jenis_properti','=',$request->properti];
         }
 
-        $result['rumah-dijual'] = DB::table('web_rumah_dijual')
-            ->where('status','=',0)
-            ->orderBy('created_at','desc')
-            ->get()->toArray();
+        $result = DB::table('web_rumah_dijual')
+            ->select('web_rumah_dijual.id', 'id_lister', 'ms_marketer.fullname as marketer', 'jenis_properti', 'tipe_biaya', 'status', 'nama_rumah', 'lokasi', 'detail', 'harga', 'gambar', 'luas_tanah', 'luas_bangunan', 'lantai', 'kamar_tidur', 'kamar_mandi', 'dapur_bersih', 'dapur_kotor', 'taman', 'arah_rumah', 'listrik', 'furniture')
+            ->join('ms_marketer','web_rumah_dijual.id_marketer','=','ms_marketer.id')
+            ->where($where)
+            ->orderBy('web_rumah_dijual.created_at','desc')
+            ->get();
 
-        $rumah = webRumahDijual::all();
-        return view('home.rumah.list')
-            ->with('info',$result);
+        return json_encode($result);
     }
 }

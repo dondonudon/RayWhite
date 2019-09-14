@@ -88,5 +88,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="sdk" level="application" />
+    <orderEntry type="library" name="numeral" level="application" />
   </component>
 </module>

@@ -11,16 +11,22 @@
 |
 */
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 Route::get('/', function () {
     return view('home.layout')
         ->with('info',\App\Http\Controllers\Home\LandingPage::infoLandingPage());
 });
+Route::get('storage/{filename}', function ($filename) {
+    return Storage::disk('public')->get($filename);
+});
+
 
 Route::get('aktivitas-kita/{id}', 'Home\AktivitasKita@index');
 Route::get('aktivitas-kita', 'Home\AktivitasKita@list');
 Route::get('rumah-dijual/detail/{id}', 'Home\RumahDetail@index');
 Route::get('rumah-dijual', 'Home\ListRumah@index');
+Route::post('rumah-dijual/get-data', 'Home\ListRumah@getRumah');
 
 Route::get('admin', 'Dashboard\overview@index');
 

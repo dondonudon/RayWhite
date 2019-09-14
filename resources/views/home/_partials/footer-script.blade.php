@@ -13,7 +13,6 @@
 <script src="{{ asset('home/js/jquery.timepicker.min.js') }}"></script>
 <script src="{{ asset('home/js/scrollax.min.js') }}"></script>
 <script src="{{ asset('home/js/main.js') }}"></script>
-
 {{--<script src="{{ asset('vendor/glide/dist/glide.min.js') }}"></script>--}}
 <script src="{{ asset('vendor/slick-1.8.1/slick/slick.min.js') }}"></script>
 <script>

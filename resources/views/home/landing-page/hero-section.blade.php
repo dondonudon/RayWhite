@@ -23,18 +23,18 @@
                 <div class="text text-center">
                     <h1 class="mb-4">{{ $info['header-section']['tagline'] }}</h1>
                     <p style="font-size: 18px;">{{ $info['header-section']['deskripsi-singkat'] }}</p>
-{{--                    <form action="#" class="search-location mt-md-5">--}}
-{{--                        <div class="row justify-content-center">--}}
-{{--                            <div class="col-lg-10 align-items-end">--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <div class="form-field">--}}
-{{--                                        <input type="text" class="form-control" placeholder="Search location">--}}
-{{--                                        <button><span class="ion-ios-search"></span></button>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </form>--}}
+                    <form action="{{ url('rumah-dijual') }}" class="search-location mt-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10 align-items-end">
+                                <div class="form-group">
+                                    <div class="form-field">
+                                        <input type="text" class="form-control" placeholder="Search location">
+                                        <button><span class="ion-ios-search"></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -1,10 +1,25 @@
+<?php
+$segments = request()->segments();
+?>
 <footer class="ftco-footer ftco-section">
     <div class="container">
         <div class="row mb-2">
             <div class="col-md-8">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2 "><b>{{ config('app.app_name') }}</b></h2>
-                    <p>Far far away, behind the word mountains, far from the countries.</p>
+                    @if(isset($segments[0]))
+                        @if($segments[0] == 'rumah-dijual')
+                            <p>{{ $info['header-section']['data'] }}</p>
+                        @else
+                            <p>{{ $info['header-section']['deskripsi-singkat'] }}</p>
+                        @endif
+                    @else
+                        <p>{{ $info['header-section']['deskripsi-singkat'] }}</p>
+                    @endif
+
+
+                    <h2 class="ftco-heading-2"><b>Jam Kerja: </b></h2>
+                    <p>09:00 - 17:00</p>
 {{--                    <ul class="ftco-footer-social list-unstyled mt-5">--}}
 {{--                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>--}}
 {{--                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>--}}
@@ -14,7 +29,10 @@
             </div>
             <div class="col-md-4">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2 ">Have a Questions?</h2>
+                    <h2 class="ftco-heading-2 ">Butuh bantuan? Ada pertanyaan? Wa admin</h2>
+                    <a href="https://wa.me/628112768789?text={{ urlencode('Saya butuh bantuan anda') }}" class="btn btn-success text-white mb-3">
+                        <i class="fab fa-whatsapp"></i> Contact Us
+                    </a>
                     <div class="block-23 mb-3">
                         <ul>
                             <li>

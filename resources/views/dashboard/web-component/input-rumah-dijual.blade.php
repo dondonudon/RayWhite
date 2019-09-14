@@ -71,7 +71,30 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="iLister">Lister</label>
-                                            <select id="iLister"></select>
+                                            <select id="iLister">
+                                                @foreach($info['lister'] as $i)
+                                                    <option value="{{ $i->id }}">{{ $i->fullname }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="iMarketer">Marketer</label>
+                                            <select id="iMarketer">
+                                                @foreach($info['marketer'] as $i)
+                                                    <option value="{{ $i->id }}">{{ $i->fullname }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="iTipeBiaya">Jual / Sewa</label>
+                                            <select id="iTipeBiaya"></select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="iJenisProperty">Jenis Properti</label>
+                                            <select id="iJenisProperty"></select>
                                         </div>
 
                                         <div class="form-group">
@@ -184,6 +207,9 @@
     <script>
         const iType = document.getElementById('iType');
         const iLister = document.getElementById('iLister');
+        const iMarketer = document.getElementById('iMarketer');
+        const iTipeBiaya = document.getElementById('iTipeBiaya');
+        const iJenisProperty = document.getElementById('iJenisProperty');
         const iNamaRumah = document.getElementById('iNamaRumah');
         const iLokasi = document.getElementById('iLokasi');
         const iDetail = document.getElementById('iDetail');
@@ -226,6 +252,9 @@
                         const formData = new FormData();
                         formData.append(fieldName, file, file.name);
                         formData.append('id_lister', iLister.value);
+                        formData.append('id_marketer', iMarketer.value);
+                        formData.append('tipe_biaya', iTipeBiaya.value);
+                        formData.append('jenis_properti', iJenisProperty.value);
                         formData.append('nama_rumah', iNamaRumah.value);
                         formData.append('lokasi', iLokasi.value);
                         formData.append('detail', iDetail.value);
@@ -286,6 +315,23 @@
 
         const sLister = new SlimSelect({
             select: '#iLister',
+        });
+        const sMarketer = new SlimSelect({
+            select: '#iMarketer',
+        });
+        const sTipeBiaya = new SlimSelect({
+            select: '#iTipeBiaya',
+            data: [
+                {text: 'Jual', value: 'jual'},
+                {text: 'Sewa', value: 'sewa'},
+            ]
+        });
+        const sJenisProperty = new SlimSelect({
+            select: '#iJenisProperty',
+            data: [
+                {text: 'Rumah', value: 'rumah'},
+                {text: 'Ruko', value: 'ruko'},
+            ]
         });
 
         let vID;
@@ -384,6 +430,12 @@
             sLister.setData(data);
         }
 
+        function setSelectMarketer(response) {
+            // console.log(response);
+            let data = JSON.parse(response);
+            sLister.setData(data);
+        }
+
         function fetchData(functionTarget) {
             kvAjax('{{ url('admin/web-component/input-rumah-dijual/list') }}','',functionTarget);
         }
@@ -431,7 +483,7 @@
 
         document.addEventListener('DOMContentLoaded', function (event) {
             fetchData(setDisplayData);
-            kvAjax('{{ url('admin/web-component/input-rumah-dijual/lister') }}','',setSelectLister);
+            {{--kvAjax('{{ url('admin/web-component/input-rumah-dijual/lister') }}','',setSelectLister);--}}
 
             btnTambah.addEventListener('click', function (e) {
                 e.preventDefault();

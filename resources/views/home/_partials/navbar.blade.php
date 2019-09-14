@@ -3,12 +3,14 @@ $segment = request()->segments();
 @endphp
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}" style="position: absolute; top: -10px">
-            <img class="img-fluid" src="{{ asset('home/images/rw-logo-2017.jpg') }}" alt="logo" width="65%">
-        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
+
+        <a class="navbar-brand" href="{{ url('/') }}" style="position: absolute; top: -10px">
+            <img class="img-fluid" src="{{ asset('home/images/rw-logo-2017.jpg') }}" alt="logo" width="65%">
+        </a>
+
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
@@ -38,7 +40,7 @@ $segment = request()->segments();
                         <a href="{{ url('aktivitas-kita') }}" class="nav-link">Our Activity</a>
                     </li>
                     <li class="nav-item" style="background-color: yellow">
-                        <a href="#forSale" class="nav-link">For Sale</a>
+                        <a href="{{ url('rumah-dijual') }}" class="nav-link">For Sale</a>
                     </li>
                 @else
                     <li class="nav-item" style="background-color: yellow">
@@ -66,7 +68,7 @@ $segment = request()->segments();
                         <a href="{{ url('aktivitas-kita') }}" class="nav-link">Our Activity</a>
                     </li>
                     <li class="nav-item" style="background-color: yellow">
-                        <a href="{{ url('/#forSale') }}" class="nav-link">For Sale</a>
+                        <a href="{{ url('rumah-dijual') }}" class="nav-link">For Sale</a>
                     </li>
                 @endif
             </ul>

@@ -17,6 +17,7 @@
 @include('home.landing-page.our-team')
 @include('home.landing-page.aktivitas-kita')
 @include('home.landing-page.rumah-dijual')
+@include('home.landing-page.bantu-pasarkan')
 
 @include('home._partials.footer')
 
