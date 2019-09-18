@@ -69,8 +69,10 @@ class LandingPage extends Controller
                 ->limit(4)
                 ->get()->toArray();
             $result['rumah-dijual'] = DB::table('web_rumah_dijual')
+                ->select('web_rumah_dijual.id', 'id_lister', 'ms_marketer.fullname as marketer', 'jenis_properti', 'tipe_biaya', 'status', 'nama_rumah', 'lokasi', 'detail', 'harga', 'gambar', 'luas_tanah', 'luas_bangunan', 'lantai', 'kamar_tidur', 'kamar_mandi', 'dapur_bersih', 'dapur_kotor', 'taman', 'arah_rumah', 'listrik', 'furniture')
+                ->leftJoin('ms_marketer','web_rumah_dijual.id_marketer','=','ms_marketer.id')
                 ->where('status','=',0)
-                ->orderBy('created_at','desc')
+                ->orderBy('web_rumah_dijual.created_at','desc')
                 ->get()->toArray();
 
             return $result;

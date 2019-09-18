@@ -30,6 +30,31 @@
 </div>
 
 @include('home._partials.footer-script')
+<script>
+    function shareWhatsapp(check,id) {
+        let url;
+        if (check === 'share') {
+            let encode = encodeURI('{{ url('rumah-dijual/detail') }}/'+id+'\n Silahkan cek rumah ini. Ray White Semarang Candi');
+            url = 'https://api.whatsapp.com/send?phone=&text='+encode;
+        } else {
+            let encode = encodeURI('{{ url('rumah-dijual/detail') }}/'+id+'\n Saya tertarik dengan rumah ini. Hubungi saya secepatnya. Ray White Semarang Candi');
+            url = 'https://api.whatsapp.com/send?phone=628112768789&text='+encode;
+        }
+
+        window.open(url);
+    }
+
+    function shareFacebook(url) {
+        let trgtUrl = 'https://www.facebook.com/sharer/sharer.php?u={{ url('rumah-dijual/detail') }}/'+url;
+        window.open(trgtUrl);
+    }
+
+    function shareMail(body) {
+        let trgtSubject = 'Ray White Semarang Candi';
+        let trgtBody = encodeURI(body);
+        window.open('mailto:your@friends.com?subject='+trgtSubject+'&body='+trgtBody);
+    }
+</script>
 
 </body>
 </html>

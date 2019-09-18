@@ -20,7 +20,11 @@
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="property-details">
-                        <div class="img" style="background-image: url({{ url('storage/'.$content->gambar) }});"></div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <img class="img-fluid" src="{{ url('storage/'.$content->gambar) }}" alt="gambar-rumah" width="75%">
+                            </div>
+                        </div>
                         <div class="text text-center">
                             <h1>{{ $content->nama_rumah }}</h1>
                             <h4>Rp {{ number_format($content->harga,2) }}</h4>
@@ -74,7 +78,7 @@
                                                 <span class="flaticon-herbal-spa-treatment-leaves"></span>Taman: {{ $content->taman }}
                                             </li>
                                             <li class="check">
-                                                <span class="flaticon-compass-with-white-needles"></span>Arah Rumah: {{ $content->arah_rumah }}
+                                                <span class="flaticon-compass-with-white-needles"></span>Hadap Rumah: {{ $content->arah_rumah }}
                                             </li>
                                             <li class="check">
                                                 <span class="flaticon-lightning-in-a-circle"></span>Listrik: {{ $content->listrik }}
@@ -88,6 +92,8 @@
                             </div>
 
                             <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
+                                <h5>Lokasi:</h5>
+                                <p>{{ $content->lokasi }}</p>
                                 <?php echo $content->detail; ?>
                             </div>
                         </div>

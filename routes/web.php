@@ -12,15 +12,12 @@
 */
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('home.layout')
         ->with('info',\App\Http\Controllers\Home\LandingPage::infoLandingPage());
 });
-Route::get('storage/{filename}', function ($filename) {
-    return Storage::disk('public')->get($filename);
-});
-
 
 Route::get('aktivitas-kita/{id}', 'Home\AktivitasKita@index');
 Route::get('aktivitas-kita', 'Home\AktivitasKita@list');
@@ -61,6 +58,13 @@ Route::get('admin/master-data/marketer', 'Dashboard\MsMarketer@index');
 Route::post('admin/master-data/marketer/list', 'Dashboard\MsMarketer@list');
 Route::post('admin/master-data/marketer/submit', 'Dashboard\MsMarketer@submit');
 Route::post('admin/master-data/marketer/delete', 'Dashboard\MsMarketer@delete');
+
+Route::get('admin/master-data/jenis-properti','Dashboard\MsJenisProperti@index');
+Route::get('admin/master-data/jenis-properti/add','Dashboard\MsJenisProperti@add');
+Route::get('admin/master-data/jenis-properti/edit/{id}','Dashboard\MsJenisProperti@edit');
+Route::post('admin/master-data/jenis-properti/add/submit','Dashboard\MsJenisProperti@addSubmit');
+Route::post('admin/master-data/jenis-properti/edit-submit','Dashboard\MsJenisProperti@editSubmit');
+Route::post('admin/master-data/jenis-properti/delete','Dashboard\MsJenisProperti@delete');
 
 Route::get('admin/user-profile/edit', 'Dashboard\UserprofileEditController@index');
 Route::post('admin/user-profile/edit/list', 'Dashboard\UserprofileEditController@list');
@@ -129,4 +133,4 @@ Route::get('admin/web-component/input-rumah-dijual/edit-data/{id}', 'Dashboard\W
 Route::get('admin/web-component/input-rumah-dijual/edit-gambar/{id}', 'Dashboard\WebInputRumah_editgambar@index');
 Route::post('admin/web-component/input-rumah-dijual/submit-edit-data', 'Dashboard\WebInputRumah_editdata@submit');
 Route::post('admin/web-component/input-rumah-dijual/submit-edit-gambar', 'Dashboard\WebInputRumah_editgambar@submit');
-Route::post('admin/web-component/input-rumah-dijual/terjual', 'Dashboard\WebInputRumah@terjual');
+Route::post('admin/web-component/input-rumah-dijual/terjual', 'Dashboard\WebInputRumah@updateStatus');

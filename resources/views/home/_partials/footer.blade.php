@@ -9,9 +9,13 @@ $segments = request()->segments();
                     <h2 class="ftco-heading-2 "><b>{{ config('app.app_name') }}</b></h2>
                     @if(isset($segments[0]))
                         @if($segments[0] == 'rumah-dijual')
-                            <p>{{ $info['header-section']['data'] }}</p>
+                            @if(isset($segments[1]))
+                                <p>{{ $info['header-section']['deskripsi-singkat'] }}</p>
+                            @else
+                                <p>{{ $info['header-section']['data'] }}</p>
+                            @endif
                         @else
-                            <p>{{ $info['header-section']['deskripsi-singkat'] }}</p>
+{{--                            <p>{{ $info['header-section']['deskripsi-singkat'] }}</p>--}}
                         @endif
                     @else
                         <p>{{ $info['header-section']['deskripsi-singkat'] }}</p>

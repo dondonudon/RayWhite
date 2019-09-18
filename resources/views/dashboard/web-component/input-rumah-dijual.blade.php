@@ -19,6 +19,7 @@
                                     <th>Detail</th>
                                     <th>Harga</th>
                                     <th>Gambar</th>
+                                    <th>Status</th>
                                 </tr>
                                 </thead>
                             </table>
@@ -26,8 +27,11 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-lg-2">
-                                    <button type="button" class="btn btn-block btn-outline-success btn-sm" id="btnTerjual" disabled>
-                                        <i class="fas fa-check"></i> Terjual
+                                    <button type="button" class="btn btn-block btn-outline-danger btn-sm" id="btnHide" hidden>
+                                        <i class="fas fa-times"></i> Terjual
+                                    </button>
+                                    <button type="button" class="btn btn-block btn-outline-success btn-sm" id="btnShow" hidden>
+                                        <i class="fas fa-check"></i> Belum Terjual
                                     </button>
                                 </div>
                                 <div class="col-lg-4"></div>
@@ -94,7 +98,11 @@
 
                                         <div class="form-group">
                                             <label for="iJenisProperty">Jenis Properti</label>
-                                            <select id="iJenisProperty"></select>
+                                            <select id="iJenisProperty">
+                                                @foreach($info['jenis-properti'] as $i)
+                                                    <option value="{{ $i->name }}">{{ $i->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
 
                                         <div class="form-group">
@@ -158,8 +166,18 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="iArahRumah">Arah Rumah</label>
-                                            <input class="form-control" id="iArahRumah">
+                                            <label for="iArahRumah">Hadap Rumah</label>
+                                            <select class="form-control" id="iArahRumah">
+                                                <option value="all">All</option>
+                                                <option value="utara">Utara</option>
+                                                <option value="timur_laut">Timur Laut</option>
+                                                <option value="timur">Timur</option>
+                                                <option value="tenggara">Tenggara</option>
+                                                <option value="selatan">Selatan</option>
+                                                <option value="barat_daya">Barat Daya</option>
+                                                <option value="barat">Barat</option>
+                                                <option value="barat_laut">Barat Laut</option>
+                                            </select>
                                         </div>
 
                                         <div class="form-group">
@@ -328,10 +346,6 @@
         });
         const sJenisProperty = new SlimSelect({
             select: '#iJenisProperty',
-            data: [
-                {text: 'Rumah', value: 'rumah'},
-                {text: 'Ruko', value: 'ruko'},
-            ]
         });
 
         let vID;
@@ -339,7 +353,8 @@
         const btnTambah = document.getElementById('btnAdd');
         const btnEditData = document.getElementById('btnEditData');
         const btnEditGambar = document.getElementById('btnEditGambar');
-        const btnTerjual = document.getElementById('btnTerjual');
+        const btnHide = document.getElementById('btnHide');
+        const btnShow = document.getElementById('btnShow');
         const btnClose = document.getElementById('btnClose');
 
         const cardEditor = document.getElementById('cardEditor');
@@ -354,6 +369,18 @@
                 { "data": "detail" },
                 { "data": "harga" },
                 { "data": "gambar" },
+                {
+                    "data": "status",
+                    "render": function ( data, type, row, meta ) {
+                        let status;
+                        if (data === 1) {
+                            status = 'Terjual';
+                        } else {
+                            status = 'Belum Terjual';
+                        }
+                        return status;
+                    }
+                },
             ],
         });
         $('#tableIndex tbody').on( 'click', 'tr', function () {
@@ -361,13 +388,20 @@
             // console.log(data);
             if ( $(this).hasClass('selected') ) {
                 $(this).removeClass('selected');
-                btnTerjual.setAttribute('disabled', true);
+                btnHide.setAttribute('disabled', true);
                 btnEditData.setAttribute('disabled', true);
                 btnEditGambar.setAttribute('disabled', true);
             } else {
                 tableIndex.$('tr.selected').removeClass('selected');
                 $(this).addClass('selected');
-                btnTerjual.removeAttribute('disabled');
+
+                if (data.status === 0) {
+                    btnHide.removeAttribute('hidden');
+                    btnShow.setAttribute('hidden',true);
+                } else {
+                    btnShow.removeAttribute('hidden');
+                    btnHide.setAttribute('hidden',true);
+                }
                 btnEditData.removeAttribute('disabled');
                 btnEditGambar.removeAttribute('disabled');
 
@@ -472,6 +506,7 @@
                     timer: 2000
                 })
             } else {
+                console.log(response);
                 Swal.fire({
                     type: 'error',
                     title: 'Silahkan coba kembali',
@@ -501,18 +536,34 @@
                 window.location.href = '{{ url('admin/web-component/input-rumah-dijual/edit-gambar') }}/'+vID;
             });
 
-            btnTerjual.addEventListener('click', function (e) {
+            btnHide.addEventListener('click', function (e) {
                 e.preventDefault();
                 Swal.fire({
-                    title: "Rumah ini telah terjual?",
+                    title: "Rumah ini tidak akan ditampilkan di halaman depan?",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Rumah Terjual'
+                    confirmButtonText: 'Sembunyikan'
                 }).then((result) => {
                     if (result.value) {
-                        kvAjax('{{ url('admin/web-component/input-rumah-dijual/terjual') }}','id='+vID,rumahTerjual);
+                        kvAjax('{{ url('admin/web-component/input-rumah-dijual/terjual') }}','id='+vID+'&status='+'1',rumahTerjual);
+                    }
+                });
+            });
+
+            btnShow.addEventListener('click', function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: "Rumah ini akan ditampilkan di halaman depan?",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Tampilkan'
+                }).then((result) => {
+                    if (result.value) {
+                        kvAjax('{{ url('admin/web-component/input-rumah-dijual/terjual') }}','id='+vID+'&status='+'0',rumahTerjual);
                     }
                 });
             });

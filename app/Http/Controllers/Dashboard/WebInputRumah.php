@@ -27,6 +27,7 @@ class WebInputRumah extends Controller
             default:
                 $info['marketer'] = DB::table('ms_marketer')->get()->toArray();
                 $info['lister'] = DB::table('ms_lister')->get()->toArray();
+                $info['jenis-properti'] = \App\msJenisProperti::all();
                 return view('dashboard.web-component.input-rumah-dijual')->with('info',$info);
                 break;
         }
@@ -35,9 +36,8 @@ class WebInputRumah extends Controller
     public function list() {
         try {
             $rumah = DB::table('web_rumah_dijual')
-                ->select('web_rumah_dijual.id','web_rumah_dijual.id_lister','ms_lister.fullname as lister','nama_rumah','lokasi','detail','harga','gambar','luas_tanah','luas_bangunan','lantai','kamar_tidur','kamar_mandi','dapur_bersih','dapur_kotor','taman','arah_rumah','listrik','furniture')
+                ->select('web_rumah_dijual.id','web_rumah_dijual.id_lister','ms_lister.fullname as lister','nama_rumah','lokasi','detail','harga','gambar','luas_tanah','luas_bangunan','lantai','kamar_tidur','kamar_mandi','dapur_bersih','dapur_kotor','taman','arah_rumah','listrik','furniture','status')
                 ->join('ms_lister','web_rumah_dijual.id_lister','=','ms_lister.id')
-                ->where('status','=',0)
                 ->get();
             return json_encode($rumah);
         } catch (\Exception $ex) {
@@ -104,16 +104,16 @@ class WebInputRumah extends Controller
 
     public function edit() {}
 
-    public function terjual(Request $request) {
+    public function updateStatus(Request $request) {
         try {
             DB::table('web_rumah_dijual')
                 ->where('id','=',$request->id)
                 ->update([
-                    'status' => 1
+                    'status' => $request->status
                 ]);
             return 'success';
         } catch (\Exception $ex) {
-            return response()->json($ex);
+            dd('Exception Block',$ex);
         }
     }
 }

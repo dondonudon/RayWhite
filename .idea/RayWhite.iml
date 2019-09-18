@@ -90,5 +90,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="sdk" level="application" />
     <orderEntry type="library" name="numeral" level="application" />
+    <orderEntry type="library" name="page" level="application" />
   </component>
 </module>

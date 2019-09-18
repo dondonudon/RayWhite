@@ -28,7 +28,7 @@
                             <div class="col-lg-10 align-items-end">
                                 <div class="form-group">
                                     <div class="form-field">
-                                        <input type="text" class="form-control" placeholder="Search location">
+                                        <input type="text" name="lokasi" class="form-control" placeholder="Search location">
                                         <button><span class="ion-ios-search"></span></button>
                                     </div>
                                 </div>

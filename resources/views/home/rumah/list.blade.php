@@ -37,10 +37,8 @@
                             <h3>Filter</h3>
                             <li>
                                 <div class="form-group">
-                                    <label for="filterArea">Area</label>
-                                    <select class="form-control" name="filter_area" id="filterArea">
-                                        <option value="all">All</option>
-                                    </select>
+                                    <label for="lokasiRumah">Lokasi Rumah</label>
+                                    <input type="text" class="form-control" id="lokasiRumah" placeholder="Lokasi Rumah" value="{{ (isset(request()->lokasi))?request()->lokasi:'' }}">
                                 </div>
                             </li>
                             <li>
@@ -66,6 +64,13 @@
                             </li>
                             <li>
                                 <div class="form-group">
+                                    <label for="filterMinLuas">Luas Rumah</label>
+                                    <input type="text" class="form-control" id="filterMinLuas" placeholder="Min">
+                                    <input type="text" class="form-control mt-2" id="filterMaxLuas" placeholder="Max">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-group">
                                     <label for="filterMinPrice">Range Harga</label>
                                     <input type="text" class="form-control" id="filterMinPrice" placeholder="Min">
                                     <input type="text" class="form-control mt-2" id="filterMaxPrice" placeholder="Max">
@@ -78,6 +83,22 @@
                                         <option value="all">All</option>
                                         <option value="rumah">Rumah</option>
                                         <option value="ruko">Ruko</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-group">
+                                    <label for="filterHadap">Hadap Rumah</label>
+                                    <select class="form-control" name="filter_hadap" id="filterHadap">
+                                        <option value="all">All</option>
+                                        <option value="timur">Timur</option>
+                                        <option value="tenggara">Tenggara</option>
+                                        <option value="selatan">Selatan</option>
+                                        <option value="barat_daya">Barat Daya</option>
+                                        <option value="barat">Barat</option>
+                                        <option value="barat_laut">Barat Laut</option>
+                                        <option value="utara">Utara</option>
+                                        <option value="timur_laut">Timur Laut</option>
                                     </select>
                                 </div>
                             </li>
@@ -101,12 +122,15 @@
             }
         });
 
-        const filterArea = document.getElementById('filterArea');
+        const filterLokasi = document.getElementById('lokasiRumah');
         const filterMarketer = document.getElementById('filterMarketer');
         const filterJualSewa = document.getElementById('filterJualSewa');
         const filterMinPrice = document.getElementById('filterMinPrice');
         const filterMaxPrice = document.getElementById('filterMaxPrice');
+        const filterMinLuas = document.getElementById('filterMinLuas');
+        const filterMaxLuas = document.getElementById('filterMaxLuas');
         const filterProperti = document.getElementById('filterProperti');
+        const filterHadap = document.getElementById('filterHadap');
 
         const listArea = document.getElementById('listRumah');
 
@@ -123,10 +147,21 @@
         };
 
         function shareFacebook(url) {
-            FB.ui({
-                method: 'share',
-                href: url
-            }, function(response){});
+            let trgtUrl = 'https://www.facebook.com/sharer/sharer.php?u={{ url('rumah-dijual/detail') }}/'+url;
+            window.open(trgtUrl);
+        }
+
+        function shareWhatsapp(check,id) {
+            let url;
+            if (check === 'share') {
+                let encode = encodeURI('{{ url('rumah-dijual/detail') }}/'+id+'\n Silahkan cek rumah ini. Ray White Semarang Candi');
+                url = 'https://api.whatsapp.com/send?phone=&text='+encode;
+            } else {
+                let encode = encodeURI('{{ url('rumah-dijual/detail') }}/'+id+'\n Saya tertarik dengan rumah ini. Hubungi saya secepatnya. Ray White Semarang Candi');
+                url = 'https://api.whatsapp.com/send?phone=628112768789&text='+encode;
+            }
+
+            window.open(url);
         }
 
         function shareInstagram(url) {
@@ -134,8 +169,8 @@
             window.open(targetUrl,'Share to Instagram');
         }
 
-        function shareMail(subject,body) {
-            let trgtSubject = encodeURI(subject);
+        function shareMail(body) {
+            let trgtSubject = 'Ray White Semarang Candi';
             let trgtBody = encodeURI(body);
             window.open('mailto:your@friends.com?subject='+trgtSubject+'&body='+trgtBody);
         }
@@ -145,29 +180,35 @@
         }
 
         function getRumah() {
-            let Area = filterArea.value;
+            let Lokasi = filterLokasi.value;
             let Marketer = filterMarketer.value;
             let JualSewa = filterJualSewa.value;
             let MinPrice = filterMinPrice.value;
             let MaxPrice = filterMaxPrice.value;
+            let MinLuas = filterMinLuas.value;
+            let MaxLuas = filterMaxLuas.value;
             let Properti = filterProperti.value;
+            let Hadap = filterHadap.value;
 
             $.ajax({
                 url: '{{ url('rumah-dijual/get-data') }}',
                 method: 'post',
                 data: {
-                    area: Area,
+                    lokasi: Lokasi,
                     marketer: Marketer,
                     jual_sewa: JualSewa,
                     min_price: MinPrice,
                     max_price: MaxPrice,
-                    properti: Properti
+                    min_luas: MinLuas,
+                    max_luas: MaxLuas,
+                    properti: Properti,
+                    hadap: Hadap,
                 },
                 success: function(response) {
                     try {
                         let htmlData = '';
                         let data = JSON.parse(response);
-                        console.log(data);
+                        // console.log(data);
                         data.forEach(function(v,i) {
                             htmlData += '<div class="col-md-6 mb-5">\n' +
                                 '                                <div class="card">\n' +
@@ -185,6 +226,15 @@
                                 '                                                </div>\n' +
                                 '                                            </div>\n' +
                                 '                                        </div>\n' +
+                                '                                       <div class="row mb-3">\n' +
+                                '                                           <div class="col">\n' +
+                                '                                               <div class="row">\n' +
+                                '                                                   <div class="col text-truncate">\n' +
+                                '                                                       Lokasi: <strong class="text-gray-dark">'+v.lokasi+'</strong>\n' +
+                                '                                                   </div>\n' +
+                                '                                               </div>\n' +
+                                '                                           </div>\n' +
+                                '                                       </div>'+
                                 '                                        <div class="row mb-3">\n' +
                                 '                                            <div class="col">\n' +
                                 '                                                <div class="row">\n' +
@@ -251,37 +301,32 @@
                                 '                                            </div>\n' +
                                 '                                        </div>\n' +
                                 '                                        <div class="row mt-2">\n' +
-                                '                                            <div class="col">\n' +
+                                '                                            <div class="col-12">\n' +
                                 '                                                Share:\n' +
                                 '                                            </div>\n' +
                                 '                                            <div class="col">\n' +
-                                '                                                <button type="button" class="btn btn-block btn-outline-info" onclick="shareFacebook()">\n' +
+                                '                                                <button type="button" class="btn btn-block btn-outline-info" onclick="shareFacebook('+v.id+')">\n' +
                                 '                                                    <i class="fab fa-facebook-f"></i>\n' +
                                 '                                                </button>\n' +
                                 '                                            </div>\n' +
                                 '                                            <div class="col">\n' +
-                                '                                                <button type="button" class="btn btn-block btn-outline-danger" onclick="shareInstagram()">\n' +
-                                '                                                    <i class="fab fa-instagram"></i>\n' +
-                                '                                                </button>\n' +
-                                '                                            </div>\n' +
-                                '                                            <div class="col">\n' +
-                                '                                                <button type="button" class="btn btn-block btn-outline-warning" onclick="shareMail()">\n' +
+                                '                                                <button type="button" class="btn btn-block btn-outline-danger" onclick="shareMail('+v.id+')">\n' +
                                 '                                                    <i class="fas fa-envelope"></i>\n' +
                                 '                                                </button>\n' +
                                 '                                            </div>\n' +
                                 '                                            <div class="col">\n' +
-                                '                                                <a href="" class="btn btn-block btn-outline-success" data-action="share/whatsapp/share">\n' +
-                                '                                                    <span><i class="fab fa-whatsapp"></i></span>\n' +
-                                '                                                </a>\n' +
+                                '                                                <button type="button" class="btn btn-block btn-outline-success" onclick="shareWhatsapp(\'share\','+v.id+')">\n' +
+                                '                                                    <i class="fab fa-whatsapp"></i>\n' +
+                                '                                                </button>\n' +
                                 '                                            </div>\n' +
                                 '                                        </div>\n' +
                                 '                                    </div>\n' +
                                 '                                    <div class="card-footer">\n' +
                                 '                                        <div class="row">\n' +
                                 '                                            <div class="col">\n' +
-                                '                                                <a href="" class="btn btn-success btn-block">\n' +
-                                '                                                    <span><i class="fab fa-whatsapp"></i> Contact Us</span>\n' +
-                                '                                                </a>\n' +
+                                '                                                <button type="button" class="btn btn-block btn-success" onclick="shareWhatsapp(\'info\','+v.id+')">\n' +
+                                '                                                    <i class="fab fa-whatsapp"></i> Contact Us\n' +
+                                '                                                </button>\n' +
                                 '                                            </div>\n' +
                                 '                                            <div class="col">\n' +
                                 '                                                <a href="{{ url('rumah-dijual/detail') }}/'+v.id+'" class="btn btn-primary btn-block">\n' +
@@ -295,7 +340,7 @@
                         });
                         listArea.innerHTML = htmlData;
                     } catch (e) {
-                        return response;
+                        console.log(response);
                     }
                 }
             });
@@ -303,7 +348,7 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             getRumah();
-            filterArea.addEventListener('change',function() {
+            filterLokasi.addEventListener('keyup',function() {
                 showLoading();
                 getRumah();
             });
@@ -324,6 +369,18 @@
                 getRumah();
             });
             filterProperti.addEventListener('change',function() {
+                showLoading();
+                getRumah();
+            });
+            filterHadap.addEventListener('change',function() {
+                showLoading();
+                getRumah();
+            });
+            filterMinLuas.addEventListener('change',function() {
+                showLoading();
+                getRumah();
+            });
+            filterMaxLuas.addEventListener('change',function() {
                 showLoading();
                 getRumah();
             });

@@ -24,6 +24,24 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col text-truncate">
+                                            Lokasi: <strong class="text-gray-dark">{{ $i->lokasi }}</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col text-truncate">
+                                            Marketer: <strong class="text-gray-dark">{{ $i->marketer }}</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 {{--                            <div class="row mb-3">--}}
 {{--                                <div class="col">--}}
 {{--                                    <div class="row">--}}
@@ -90,40 +108,35 @@
                                 </div>
                             </div>
                             <div class="row mt-2">
-                                <div class="col">
+                                <div class="col-12">
                                     Share:
                                 </div>
                                 <div class="col">
-                                    <button type="button" class="btn btn-block btn-outline-info" onclick="shareFacebook()">
+                                    <button type="button" class="btn btn-block btn-outline-info" onclick="shareFacebook('{{ $i->id }}')">
                                         <i class="fab fa-facebook-f"></i>
                                     </button>
                                 </div>
                                 <div class="col">
-                                    <button type="button" class="btn btn-block btn-outline-danger" onclick="shareInstagram()">
-                                        <i class="fab fa-instagram"></i>
-                                    </button>
-                                </div>
-                                <div class="col">
-                                    <button type="button" class="btn btn-block btn-outline-warning" onclick="shareMail()">
+                                    <button type="button" class="btn btn-block btn-outline-warning" onclick="shareMail('{{ $i->id }}')">
                                         <i class="fas fa-envelope"></i>
                                     </button>
                                 </div>
                                 <div class="col">
-                                    <a href="" class="btn btn-block btn-outline-success" data-action="share/whatsapp/share">
-                                        <span><i class="fab fa-whatsapp"></i></span>
-                                    </a>
+                                    <button type="button" class="btn btn-block btn-outline-success" onclick="shareWhatsapp('share','{{ $i->id }}')">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col">
-                                    <a href="" class="btn btn-success btn-block">
-                                        <span><i class="fab fa-whatsapp"></i> Contact Us</span>
-                                    </a>
+                                    <button type="button" class="btn btn-block btn-success" onclick="shareWhatsapp('info','{{ $i->id }}')">
+                                        <i class="fab fa-whatsapp"></i> Contact Us
+                                    </button>
                                 </div>
                                 <div class="col">
-                                    <a href="{{ url('rumah-dijual/detail') }}/'+v.id+'" class="btn btn-primary btn-block">
+                                    <a href="{{ url('rumah-dijual/detail/'.$i->id) }}" class="btn btn-primary btn-block">
                                         <span class="text-dark">Detail</span>
                                     </a>
                                 </div>

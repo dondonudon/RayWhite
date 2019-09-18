@@ -79,7 +79,17 @@
 
                                 <div class="form-group">
                                     <label for="iArahRumah">Arah Rumah</label>
-                                    <input class="form-control" id="iArahRumah">
+                                    <select class="form-control" id="iArahRumah">
+                                        <option value="all">All</option>
+                                        <option value="utara">Utara</option>
+                                        <option value="timur_laut">Timur Laut</option>
+                                        <option value="timur">Timur</option>
+                                        <option value="tenggara">Tenggara</option>
+                                        <option value="selatan">Selatan</option>
+                                        <option value="barat_daya">Barat Daya</option>
+                                        <option value="barat">Barat</option>
+                                        <option value="barat_laut">Barat Laut</option>
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
