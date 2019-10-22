@@ -34,7 +34,7 @@ $segment = request()->segments();
                         <a href="#favoriteMarketer" class="nav-link">Favorite Marketer</a>
                     </li>
                     <li class="nav-item" style="background-color: yellow">
-                        <a href="#ourTeam" class="nav-link">Our Team</a>
+                        <a href="{{ url('our-team') }}" class="nav-link">Our Team</a>
                     </li>
                     <li class="nav-item" style="background-color: yellow">
                         <a href="{{ url('aktivitas-kita') }}" class="nav-link">Our Activity</a>
@@ -62,7 +62,7 @@ $segment = request()->segments();
                         <a href="{{ url('/#favoriteMarketer') }}" class="nav-link">Favorite Marketer</a>
                     </li>
                     <li class="nav-item" style="background-color: yellow">
-                        <a href="{{ url('/#ourTeam') }}" class="nav-link">Our Team</a>
+                        <a href="{{ url('our-team') }}" class="nav-link">Our Team</a>
                     </li>
                     <li class="nav-item" style="background-color: yellow">
                         <a href="{{ url('aktivitas-kita') }}" class="nav-link">Our Activity</a>

@@ -34,20 +34,25 @@
                                         <i class="fas fa-check"></i> Belum Terjual
                                     </button>
                                 </div>
-                                <div class="col-lg-4"></div>
+                                <div class="col-lg-2"></div>
+                                <div class="col-lg-2 mt-2 mt-sm-0">
+                                    <button type="button" class="btn btn-block btn-outline-dark btn-sm" id="btnTambahGambar" disabled>
+                                        <i class="fas fa-images mr-2"></i> Tambah Gambar
+                                    </button>
+                                </div>
                                 <div class="col-lg-2 mt-2 mt-sm-0">
                                     <button type="button" class="btn btn-block btn-outline-dark btn-sm" id="btnEditGambar" disabled>
-                                        <i class="fas fa-image"></i> Edit Gambar
+                                        <i class="fas fa-image mr-2"></i> Edit Gambar
                                     </button>
                                 </div>
                                 <div class="col-lg-2 mt-2 mt-sm-0">
                                     <button type="button" class="btn btn-block btn-outline-dark btn-sm" id="btnEditData" disabled>
-                                        <i class="fas fa-pen"></i> Edit Data
+                                        <i class="fas fa-pen mr-2"></i> Edit Data
                                     </button>
                                 </div>
                                 <div class="col-lg-2 mt-2 mt-sm-0">
                                     <button type="button" class="btn btn-block btn-primary btn-sm" id="btnAdd">
-                                        <i class="fas fa-plus"></i> Tambah
+                                        <i class="fas fa-plus mr-2"></i> Tambah Produk
                                     </button>
                                 </div>
                             </div>
@@ -70,7 +75,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <div id="iGambar"></div>
+                                        <input id="iGambar" name="filepond[]"></input>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
@@ -353,6 +358,7 @@
         const btnTambah = document.getElementById('btnAdd');
         const btnEditData = document.getElementById('btnEditData');
         const btnEditGambar = document.getElementById('btnEditGambar');
+        const btnTambahGambar = document.getElementById('btnTambahGambar');
         const btnHide = document.getElementById('btnHide');
         const btnShow = document.getElementById('btnShow');
         const btnClose = document.getElementById('btnClose');
@@ -391,6 +397,7 @@
                 btnHide.setAttribute('disabled', true);
                 btnEditData.setAttribute('disabled', true);
                 btnEditGambar.setAttribute('disabled', true);
+                btnTambahGambar.setAttribute('disabled', true);
             } else {
                 tableIndex.$('tr.selected').removeClass('selected');
                 $(this).addClass('selected');
@@ -404,6 +411,7 @@
                 }
                 btnEditData.removeAttribute('disabled');
                 btnEditGambar.removeAttribute('disabled');
+                btnTambahGambar.removeAttribute('disabled');
 
                 vID = data.id;
             }
@@ -534,6 +542,11 @@
             btnEditGambar.addEventListener('click',function (e) {
                 e.preventDefault();
                 window.location.href = '{{ url('admin/web-component/input-rumah-dijual/edit-gambar') }}/'+vID;
+            });
+
+            btnTambahGambar.addEventListener('click',function (e) {
+                e.preventDefault();
+                window.location.href = '{{ url('admin/web-component/input-rumah-dijual/tambah-gambar') }}/'+vID;
             });
 
             btnHide.addEventListener('click', function (e) {

@@ -14,7 +14,7 @@
 @include('home.landing-page.top-lister')
 @include('home.landing-page.top-marketer')
 @include('home.landing-page.favourite-marketer')
-@include('home.landing-page.our-team')
+{{--@include('home.landing-page.our-team')--}}
 @include('home.landing-page.aktivitas-kita')
 @include('home.landing-page.rumah-dijual')
 @include('home.landing-page.bantu-pasarkan')

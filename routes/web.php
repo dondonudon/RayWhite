@@ -19,11 +19,16 @@ Route::get('/', function () {
         ->with('info',\App\Http\Controllers\Home\LandingPage::infoLandingPage());
 });
 
+Route::get('storage/{file}',function ($file) {
+    return response()->file(storage_path('app/public/'.$file));
+});
+
 Route::get('aktivitas-kita/{id}', 'Home\AktivitasKita@index');
 Route::get('aktivitas-kita', 'Home\AktivitasKita@list');
 Route::get('rumah-dijual/detail/{id}', 'Home\RumahDetail@index');
 Route::get('rumah-dijual', 'Home\ListRumah@index');
 Route::post('rumah-dijual/get-data', 'Home\ListRumah@getRumah');
+Route::get('our-team', 'Home\OurTeam@index');
 
 Route::get('admin', 'Dashboard\overview@index');
 
@@ -131,6 +136,9 @@ Route::post('admin/web-component/input-rumah-dijual/lister', 'Dashboard\WebInput
 Route::post('admin/web-component/input-rumah-dijual/add', 'Dashboard\WebInputRumah@add');
 Route::get('admin/web-component/input-rumah-dijual/edit-data/{id}', 'Dashboard\WebInputRumah_editdata@index');
 Route::get('admin/web-component/input-rumah-dijual/edit-gambar/{id}', 'Dashboard\WebInputRumah_editgambar@index');
+Route::get('admin/web-component/input-rumah-dijual/tambah-gambar/{id}', 'Dashboard\WebInputRumah_tambahgambar@index');
 Route::post('admin/web-component/input-rumah-dijual/submit-edit-data', 'Dashboard\WebInputRumah_editdata@submit');
 Route::post('admin/web-component/input-rumah-dijual/submit-edit-gambar', 'Dashboard\WebInputRumah_editgambar@submit');
+Route::post('admin/web-component/input-rumah-dijual/submit-tambah-gambar', 'Dashboard\WebInputRumah_tambahgambar@submit');
+Route::post('admin/web-component/input-rumah-dijual/submit-delete-gambar', 'Dashboard\WebInputRumah_tambahgambar@delete');
 Route::post('admin/web-component/input-rumah-dijual/terjual', 'Dashboard\WebInputRumah@updateStatus');

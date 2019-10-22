@@ -9,7 +9,7 @@
         <div class="row">
             @foreach($info['rumah-dijual'] as $i)
                 <div class="col-md-4 mb-5">
-                    <div class="card">
+                    <div class="card" onclick="window.location.href = '{{ url('rumah-dijual/detail/'.$i->id) }}'">
                         <img src="{{ url('storage/'.$i->gambar) }}" class="card-img" alt="{{ $i->nama_rumah }}" >
                         <div class="card-header" style="opacity: .8">
                             <strong>{{ $i->nama_rumah }}</strong>
