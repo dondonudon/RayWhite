@@ -13,7 +13,7 @@
                         <div class="img">
                             <img src="{{ url('storage/'.$t->photo) }}" class="img-fluid" alt="{{ $t->fullname }}">
                         </div>
-                        <div class="desc text-center" style="background-color: yellow">
+                        <div class="desc text-center" style="background-color: transparent">
                             <h3>{{ $t->fullname }}</h3>
 {{--                            <p class="h-info"><span class="location">{{ $t['jabatan'] }}</span></p>--}}
                         </div>

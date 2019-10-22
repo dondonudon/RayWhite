@@ -3,14 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1f162e72-3300-477c-a058-e56dd49ac36e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Home/RumahDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Home/RumahDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/web-component/input-rumah-dijual.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/web-component/input-rumah-dijual.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/_partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/_partials/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/landing-page/rumah-dijual.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/landing-page/rumah-dijual.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/rumah/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/rumah/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/landing-page/favourite-marketer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/landing-page/favourite-marketer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/landing-page/top-lister.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/landing-page/top-lister.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/landing-page/top-marketer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/landing-page/top-marketer.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -227,6 +222,7 @@
       <workItem from="1571198931344" duration="127000" />
       <workItem from="1571199359271" duration="10111000" />
       <workItem from="1571296003587" duration="6000" />
+      <workItem from="1571724507018" duration="639000" />
     </task>
     <servers />
   </component>
