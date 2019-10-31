@@ -18,93 +18,98 @@
     <section class="ftco-section ftco-degree-bg">
         <div class="container">
             <div class="row">
-{{--                <div class="col-md-8 order-md-last ftco-animate">--}}
-{{--                    <div class="row" id="listRumah">--}}
-{{--                        <div class="col text-center">--}}
-{{--                            <i class="fas fa-spinner fa-3x fa-pulse"></i>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
                 <div class="col-md-4 sidebar ftco-animate">
-{{--                    <div class="sidebar-box">--}}
-{{--                        <form action="#" class="search-form">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <span class="icon icon-search"></span>--}}
-{{--                                <input type="text" class="form-control" placeholder="Type a keyword and hit enter">--}}
-{{--                            </div>--}}
-{{--                        </form>--}}
-{{--                    </div>--}}
                     <div class="sidebar-box ftco-animate">
                         <div class="categories">
-                            <h3>Filter</h3>
-                            <li>
-                                <div class="form-group">
-                                    <label for="lokasiRumah">Lokasi Rumah</label>
-                                    <input type="text" class="form-control" id="lokasiRumah" placeholder="Lokasi Rumah" value="{{ (isset(request()->lokasi))?request()->lokasi:'' }}">
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header"
+                                         id="headingOne"
+                                         data-toggle="collapse"
+                                         data-target="#collapseOne"
+                                         aria-expanded="true"
+                                         aria-controls="collapseOne"
+                                         style="background-color: #FBE60F"
+                                    >
+                                        <h3
+                                            class="mb-0"
+                                            style="color: #585766; font-weight: bold;"
+                                        >Filter Pencarian</h3>
+                                    </div>
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <li>
+                                                <div class="form-group">
+                                                    <label for="lokasiRumah">Lokasi Rumah</label>
+                                                    <input type="text" class="form-control" id="lokasiRumah" placeholder="Lokasi Rumah" value="{{ (isset(request()->lokasi))?request()->lokasi:'' }}">
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-group">
+                                                    <label for="filterMarketer">Marketing</label>
+                                                    <select class="form-control" name="filter_marketer" id="filterMarketer">
+                                                        <option value="all">All</option>
+                                                        @foreach($filter['marketer'] as $f)
+                                                            <option value="{{ $f->id }}">{{ $f->fullname }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-group">
+                                                    <label for="filterJualSewa">Jual atau Sewa</label>
+                                                    <select class="form-control" name="filter_jualsewa" id="filterJualSewa">
+                                                        <option value="all">All</option>
+                                                        <option value="jual">Jual</option>
+                                                        <option value="Sewa">Sewa</option>
+                                                    </select>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-group">
+                                                    <label for="filterMinLuas">Luas Rumah</label>
+                                                    <input type="text" class="form-control" id="filterMinLuas" placeholder="Min">
+                                                    <input type="text" class="form-control mt-2" id="filterMaxLuas" placeholder="Max">
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-group">
+                                                    <label for="filterMinPrice">Range Harga</label>
+                                                    <input type="text" class="form-control" id="filterMinPrice" placeholder="Min">
+                                                    <input type="text" class="form-control mt-2" id="filterMaxPrice" placeholder="Max">
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-group">
+                                                    <label for="filterProperti">Jenis Property</label>
+                                                    <select class="form-control" name="filter_properti" id="filterProperti">
+                                                        <option value="all">All</option>
+                                                        <option value="rumah">Rumah</option>
+                                                        <option value="ruko">Ruko</option>
+                                                    </select>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-group">
+                                                    <label for="filterHadap">Hadap Rumah</label>
+                                                    <select class="form-control" name="filter_hadap" id="filterHadap">
+                                                        <option value="all">All</option>
+                                                        <option value="timur">Timur</option>
+                                                        <option value="tenggara">Tenggara</option>
+                                                        <option value="selatan">Selatan</option>
+                                                        <option value="barat_daya">Barat Daya</option>
+                                                        <option value="barat">Barat</option>
+                                                        <option value="barat_laut">Barat Laut</option>
+                                                        <option value="utara">Utara</option>
+                                                        <option value="timur_laut">Timur Laut</option>
+                                                    </select>
+                                                </div>
+                                            </li>
+                                        </div>
+                                    </div>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="form-group">
-                                    <label for="filterMarketer">Marketing</label>
-                                    <select class="form-control" name="filter_marketer" id="filterMarketer">
-                                        <option value="all">All</option>
-                                        @foreach($filter['marketer'] as $f)
-                                            <option value="{{ $f->id }}">{{ $f->fullname }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="form-group">
-                                    <label for="filterJualSewa">Jual atau Sewa</label>
-                                    <select class="form-control" name="filter_jualsewa" id="filterJualSewa">
-                                        <option value="all">All</option>
-                                        <option value="jual">Jual</option>
-                                        <option value="Sewa">Sewa</option>
-                                    </select>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="form-group">
-                                    <label for="filterMinLuas">Luas Rumah</label>
-                                    <input type="text" class="form-control" id="filterMinLuas" placeholder="Min">
-                                    <input type="text" class="form-control mt-2" id="filterMaxLuas" placeholder="Max">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="form-group">
-                                    <label for="filterMinPrice">Range Harga</label>
-                                    <input type="text" class="form-control" id="filterMinPrice" placeholder="Min">
-                                    <input type="text" class="form-control mt-2" id="filterMaxPrice" placeholder="Max">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="form-group">
-                                    <label for="filterProperti">Jenis Property</label>
-                                    <select class="form-control" name="filter_properti" id="filterProperti">
-                                        <option value="all">All</option>
-                                        <option value="rumah">Rumah</option>
-                                        <option value="ruko">Ruko</option>
-                                    </select>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="form-group">
-                                    <label for="filterHadap">Hadap Rumah</label>
-                                    <select class="form-control" name="filter_hadap" id="filterHadap">
-                                        <option value="all">All</option>
-                                        <option value="timur">Timur</option>
-                                        <option value="tenggara">Tenggara</option>
-                                        <option value="selatan">Selatan</option>
-                                        <option value="barat_daya">Barat Daya</option>
-                                        <option value="barat">Barat</option>
-                                        <option value="barat_laut">Barat Laut</option>
-                                        <option value="utara">Utara</option>
-                                        <option value="timur_laut">Timur Laut</option>
-                                    </select>
-                                </div>
-                            </li>
+                            </div>
+
                         </div>
                     </div>
                 </div>

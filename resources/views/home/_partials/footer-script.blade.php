@@ -37,18 +37,43 @@
             centerMode: true,
             variableWidth: true,
         });
-        $(".owl-carousel").owlCarousel({
+        $("#sliderDetailRumah").owlCarousel({
             items: 1,
+            loop: true,
             center: true,
             margin: 10,
-            // responsive:{
-            //     0: {
-            //         items:1
-            //     },
-            //     600:{
-            //         items:3
-            //     }
-            // }
+            responsive:{
+                0: {
+                    items:1
+                },
+                480:{
+                    items:3
+                },
+                768:{
+                    items:3,
+                    loop: false,
+                }
+            }
+        });
+        $("#sliderHome").owlCarousel({
+            items: 1,
+            nav: true,
+            loop: true,
+            center: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            responsive:{
+                0: {
+                    items:1
+                },
+                480:{
+                    items:2
+                },
+                768:{
+                    items:2
+                }
+            }
         });
     });
 </script>

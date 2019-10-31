@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f162e72-3300-477c-a058-e56dd49ac36e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/home/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/_partials/footer-script.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/_partials/footer-script.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/_partials/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/_partials/head.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/_partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/_partials/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/_partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/_partials/footer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/landing-page/about-us.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/landing-page/about-us.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/landing-page/hero-section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/landing-page/hero-section.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/landing-page/rumah-dijual.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/landing-page/rumah-dijual.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/landing-page/slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/landing-page/slider.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/our-team/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/our-team/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/rumah/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/rumah/detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/rumah/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/rumah/list.blade.php" afterDir="false" />
     </list>
@@ -238,7 +234,7 @@
       <workItem from="1572054476382" duration="9000" />
       <workItem from="1572416494686" duration="13763000" />
       <workItem from="1572486190188" duration="557000" />
-      <workItem from="1572488850789" duration="515000" />
+      <workItem from="1572488850789" duration="6094000" />
     </task>
     <servers />
   </component>

@@ -22,7 +22,7 @@
                     <div class="property-details">
                         <div class="row">
                             <div class="col d-flex justify-content-center">
-                                <div class="owl-carousel">
+                                <div class="owl-carousel" id="sliderDetailRumah">
                                     <div>
                                         <img class="d-block w-100" src="{{ url('storage/'.$content->gambar) }}" alt="gambar-rumah" style="height: 50%">
                                     </div>
