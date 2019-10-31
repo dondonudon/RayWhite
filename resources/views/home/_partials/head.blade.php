@@ -34,6 +34,10 @@
 <link rel="stylesheet" href="{{ asset('vendor/slick-1.8.1/slick/slick.css') }}">
 <link rel="stylesheet" href="{{ asset('vendor/slick-1.8.1/slick/slick-theme.css') }}">
 
+{{-- Owl Carousel --}}
+<link rel="stylesheet" href="{{ asset('vendor/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css') }}">
+
 <link rel="stylesheet" href="{{ asset('home/css/style.css') }}">
 
 {{-- GLIDE JS --}}

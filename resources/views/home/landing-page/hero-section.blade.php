@@ -19,9 +19,9 @@
     <div class="overlay" style="background-color: lightgray; opacity: 0.5;"></div>
     <div class="container">
         <div class="row no-gutters slider-text justify-content-center align-items-center">
-            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+            <div class="col-lg-8 col-md-6 ftco-animate">
                 <div class="text text-center">
-                    <h1 class="mb-4">{{ $info['header-section']['tagline'] }}</h1>
+                    <h2 class="mb-4"><strong>{{ $info['header-section']['tagline'] }}</strong></h2>
                     <p style="font-size: 18px;">{{ $info['header-section']['deskripsi-singkat'] }}</p>
                     <form action="{{ url('rumah-dijual') }}" class="search-location mt-md-5">
                         <div class="row justify-content-center">
@@ -35,6 +35,7 @@
                             </div>
                         </div>
                     </form>
+                    <?php echo $info['quote-of-the-day']['data'] ?>
                 </div>
             </div>
         </div>

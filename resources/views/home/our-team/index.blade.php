@@ -1,15 +1,8 @@
 @extends('home.rumah.layout')
 
 @section('content')
-    <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('{{ url('storage/'.$info['header-section']['filename']) }}');" data-stellar-background-ratio="0.5">
-        <div class="overlay" style="background-color: lightgray; opacity: 0.5;"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-                <div class="col-md-9 ftco-animate pb-5 text-center">
-                    <h1 class="mb-3 bread">OUR TEAM</h1>
-                </div>
-            </div>
-        </div>
+    <section data-stellar-background-ratio="0.5">
+        <h1 class="mb-3 text-center" style="margin-top: 100px">OUR TEAM</h1>
     </section>
 
     <section class="ftco-section ftco-degree-bg">
@@ -17,7 +10,7 @@
             <div class="row justify-content-md-center">
 
                 @foreach($team as $t)
-                    <div class="col-md-3 ftco-animate">
+                    <div class="col-md-2 col-6 ftco-animate">
                         <div class="agent">
                             <div class="img">
                                 <img src="{{ url('storage/'.$t->foto) }}" class="img-fluid" alt="{{ $t['fullname'] }}">

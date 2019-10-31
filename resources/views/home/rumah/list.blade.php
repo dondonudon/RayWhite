@@ -7,6 +7,9 @@
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate pb-5 text-center">
                     <h1 class="mb-3 bread">Exclusive Offer For You</h1>
+                    <h2 class="mb-3 bread">
+                        Portal Properti Indonesia
+                    </h2>
                 </div>
             </div>
         </div>
@@ -15,13 +18,13 @@
     <section class="ftco-section ftco-degree-bg">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 order-md-last ftco-animate">
-                    <div class="row" id="listRumah">
-                        <div class="col text-center">
-                            <i class="fas fa-spinner fa-3x fa-pulse"></i>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="col-md-8 order-md-last ftco-animate">--}}
+{{--                    <div class="row" id="listRumah">--}}
+{{--                        <div class="col text-center">--}}
+{{--                            <i class="fas fa-spinner fa-3x fa-pulse"></i>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
                 <div class="col-md-4 sidebar ftco-animate">
 {{--                    <div class="sidebar-box">--}}
@@ -106,6 +109,13 @@
                     </div>
                 </div>
 
+                <div class="col-md-8 order-md-last ftco-animate">
+                    <div class="row" id="listRumah">
+                        <div class="col text-center">
+                            <i class="fas fa-spinner fa-3x fa-pulse"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -210,8 +220,9 @@
                         let data = JSON.parse(response);
                         // console.log(data);
                         data.forEach(function(v,i) {
+                            let url = '{{ url("rumah-dijual/detail") }}/'+v.id;
                             htmlData += '<div class="col-md-6 mb-5">\n' +
-                                '                                <div class="card">\n' +
+                                '<div class="card" onclick="window.location.href =\''+url+'\'">\n' +
                                 '                                    <img src="{{ url('storage') }}/'+v.gambar+'" class="card-img" alt="'+v.nama_rumah+'" >\n' +
                                 '                                    <div class="card-header" style="opacity: .8">\n' +
                                 '                                        <strong>'+v.nama_rumah+'</strong>\n' +

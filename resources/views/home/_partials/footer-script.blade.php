@@ -15,6 +15,7 @@
 <script src="{{ asset('home/js/main.js') }}"></script>
 {{--<script src="{{ asset('vendor/glide/dist/glide.min.js') }}"></script>--}}
 <script src="{{ asset('vendor/slick-1.8.1/slick/slick.min.js') }}"></script>
+<script src="{{ asset('vendor/OwlCarousel2-2.3.4/dist/owl.carousel.min.js') }}"></script>
 <script>
     // new Glide('.glide', {
     //     type: 'carousel',
@@ -30,10 +31,24 @@
 
     $(document).ready(function(){
         $('#slider_section').slick({
+            arrows: false,
             dots: true,
             autoplay: true,
             centerMode: true,
             variableWidth: true,
+        });
+        $(".owl-carousel").owlCarousel({
+            items: 1,
+            center: true,
+            margin: 10,
+            // responsive:{
+            //     0: {
+            //         items:1
+            //     },
+            //     600:{
+            //         items:3
+            //     }
+            // }
         });
     });
 </script>

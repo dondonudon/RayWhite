@@ -8,7 +8,7 @@
         </div>
         <div class="row justify-content-md-center">
             <div class="col-md">
-                <div id="slider_section">
+                <div id="slider_section" style="width: 100%;">
                     @foreach($info['image-slider'] as $i)
                         <div><img src="{{ url('storage/'.$i->filename) }}"></div>
                     @endforeach
