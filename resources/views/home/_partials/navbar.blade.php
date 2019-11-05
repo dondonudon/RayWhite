@@ -10,7 +10,7 @@ $segment = request()->segments();
 {{--        </a>--}}
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span> Menu
+            <span class="fas fa-bars"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="ftco-nav">
@@ -19,21 +19,21 @@ $segment = request()->segments();
                     <li class="nav-item">
                         <a href="#promo" class="nav-link">Promo</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#aboutUs" class="nav-link">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#quote" class="nav-link">Quote</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#topLister" class="nav-link">Top Lister</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#topMarketer" class="nav-link">Top Marketer</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#favoriteMarketer" class="nav-link">Favorite Marketer</a>
-                    </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="#aboutUs" class="nav-link">About Us</a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="#quote" class="nav-link">Quote</a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="#topLister" class="nav-link">Top Lister</a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="#topMarketer" class="nav-link">Top Marketer</a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="#favoriteMarketer" class="nav-link">Favorite Marketer</a>--}}
+{{--                    </li>--}}
                     <li class="nav-item">
                         <a href="{{ url('our-team') }}" class="nav-link">Our Team</a>
                     </li>
@@ -47,21 +47,21 @@ $segment = request()->segments();
                     <li class="nav-item">
                         <a href="{{ url('/#promo') }}" class="nav-link">Promo</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ url('/#aboutUs') }}" class="nav-link">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url('/#quote') }}" class="nav-link">Quote</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url('/#topLister') }}" class="nav-link">Top Lister</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url('/#topMarketer') }}" class="nav-link">Top Marketer</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url('/#favoriteMarketer') }}" class="nav-link">Favorite Marketer</a>
-                    </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="{{ url('/#aboutUs') }}" class="nav-link">About Us</a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="{{ url('/#quote') }}" class="nav-link">Quote</a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="{{ url('/#topLister') }}" class="nav-link">Top Lister</a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="{{ url('/#topMarketer') }}" class="nav-link">Top Marketer</a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="{{ url('/#favoriteMarketer') }}" class="nav-link">Favorite Marketer</a>--}}
+{{--                    </li>--}}
                     <li class="nav-item">
                         <a href="{{ url('our-team') }}" class="nav-link">Our Team</a>
                     </li>

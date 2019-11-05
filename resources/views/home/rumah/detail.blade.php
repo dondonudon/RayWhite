@@ -1,5 +1,19 @@
 @extends('home.rumah.layout')
 
+@section('style')
+    <style>
+        .jumbotron {
+            /*color: white;*/
+            background-image: url("{{ url('storage/'.$content->gambar) }}");
+            box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.74);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 35vh;
+        }
+    </style>
+@endsection
+
 @section('content')
 {{--    <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('{{ url('storage/'.$content->gambar) }}');" data-stellar-background-ratio="0.5">--}}
 {{--        <div class="overlay" style="background-color: lightgray; opacity: 0.5;"></div>--}}
@@ -15,7 +29,13 @@
 {{--        </div>--}}
 {{--    </section>--}}
 
-    <section class="ftco-section ftco-property-details" style="margin-top: 20px">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="mt-sm-5 text-center">FOR SALE</h1>
+        </div>
+    </div>
+
+    <section class="ftco-section ftco-property-details pt-2">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12">

@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row justify-content-center pb-5">
             <div class="col-md-12 heading-section text-center ftco-animate">
-                <span class="subheading">PROMO</span>
-                <h2 class="mb-4">Ray White Promo</h2>
+                <span class="subheading">NEWS</span>
+                <h2 class="mb-4">Welcome to RayWhite Semarang Candi</h2>
             </div>
         </div>
         <div class="row justify-content-md-center">

@@ -1,11 +1,27 @@
 @extends('home.rumah.layout')
 
-@section('content')
-    <section data-stellar-background-ratio="0.5">
-        <h1 class="mb-3 text-center" style="margin-top: 100px">OUR TEAM</h1>
-    </section>
+@section('style')
+    <style>
+        .jumbotron {
+            /*color: white;*/
+            background-image: url("{{ url('storage/'.$info['header-section']['filename']) }}");
+            box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.74);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 35vh;
+        }
+    </style>
+@endsection
 
-    <section class="ftco-section ftco-degree-bg">
+@section('content')
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="mt-sm-5 text-center">OUR TEAM</h1>
+        </div>
+    </div>
+
+    <section class="ftco-section ftco-degree-bg pt-2">
         <div class="container">
             <div class="row justify-content-md-center">
 

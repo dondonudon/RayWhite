@@ -1,21 +1,41 @@
 @extends('home.rumah.layout')
 
-@section('content')
-    <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('{{ url('storage/'.$info['header-section']['filename']) }}');" data-stellar-background-ratio="0.5">
-        <div class="overlay" style="background-color: lightgray; opacity: 0.5;"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-                <div class="col-md-9 ftco-animate pb-5 text-center">
-                    <h1 class="mb-3 bread">Exclusive Offer For You</h1>
-                    <h2 class="mb-3 bread">
-                        Portal Properti Indonesia
-                    </h2>
-                </div>
-            </div>
-        </div>
-    </section>
+@section('style')
+    <style>
+        .jumbotron {
+            /*color: white;*/
+            background-image: url("{{ url('storage/'.$info['header-section']['filename']) }}");
+            box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.74);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 35vh;
+        }
+    </style>
+@endsection
 
-    <section class="ftco-section ftco-degree-bg">
+@section('content')
+{{--    <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('{{ url('storage/'.$info['header-section']['filename']) }}');" data-stellar-background-ratio="0.5">--}}
+{{--        <div class="overlay" style="background-color: lightgray; opacity: 0.5;"></div>--}}
+{{--        <div class="container">--}}
+{{--            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">--}}
+{{--                <div class="col-md-9 ftco-animate pb-5 text-center">--}}
+{{--                    <h1 class="mb-3 bread">Exclusive Offer For You</h1>--}}
+{{--                    <h2 class="mb-3 bread">--}}
+{{--                        Portal Properti Indonesia--}}
+{{--                    </h2>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="mt-sm-5 text-center">FOR SALE</h1>
+        </div>
+    </div>
+
+    <section class="ftco-section ftco-degree-bg pt-2">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 sidebar ftco-animate">

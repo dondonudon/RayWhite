@@ -9,14 +9,17 @@
 
 @include('home.landing-page.hero-section')
 @include('home.landing-page.slider')
-@include('home.landing-page.about-us')
+@if($info['konten-video'])
+    @include('home.landing-page.konten-video')
+@endif
+{{--@include('home.landing-page.about-us')--}}
 {{--@include('home.landing-page.quote-of-the-day')--}}
 {{--@include('home.landing-page.top-lister')--}}
 {{--@include('home.landing-page.top-marketer')--}}
 {{--@include('home.landing-page.favourite-marketer')--}}
 {{--@include('home.landing-page.our-team')--}}
 @include('home.landing-page.aktivitas-kita')
-@include('home.landing-page.rumah-dijual')
+{{--@include('home.landing-page.rumah-dijual')--}}
 @include('home.landing-page.bantu-pasarkan')
 
 @include('home._partials.footer')

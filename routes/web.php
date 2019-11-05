@@ -142,3 +142,9 @@ Route::post('admin/web-component/input-rumah-dijual/submit-edit-gambar', 'Dashbo
 Route::post('admin/web-component/input-rumah-dijual/submit-tambah-gambar', 'Dashboard\WebInputRumah_tambahgambar@submit');
 Route::post('admin/web-component/input-rumah-dijual/submit-delete-gambar', 'Dashboard\WebInputRumah_tambahgambar@delete');
 Route::post('admin/web-component/input-rumah-dijual/terjual', 'Dashboard\WebInputRumah@updateStatus');
+
+Route::get('admin/web-component/konten-video', 'Dashboard\webKontenVideo@index');
+Route::post('admin/web-component/konten-video/list', 'Dashboard\webKontenVideo@list');
+Route::get('admin/web-component/konten-video/add', 'Dashboard\webKontenVideo@add');
+Route::post('admin/web-component/konten-video/addSubmit', 'Dashboard\webKontenVideo@addSubmit');
+Route::post('admin/web-component/konten-video/delete', 'Dashboard\webKontenVideo@delete');
