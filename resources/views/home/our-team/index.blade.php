@@ -17,7 +17,7 @@
 @section('content')
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="mt-sm-5 text-center">OUR TEAM</h1>
+            <h1 class="mt-sm-5 text-center" style="color: #575D5A">OUR TEAM</h1>
         </div>
     </div>
 
