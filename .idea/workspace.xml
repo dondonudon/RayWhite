@@ -108,7 +108,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/vendor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -231,7 +231,8 @@
       <workItem from="1572815782132" duration="27000" />
       <workItem from="1572832791535" duration="13635000" />
       <workItem from="1572854134349" duration="7578000" />
-      <workItem from="1572918383825" duration="3335000" />
+      <workItem from="1572918383825" duration="2989000" />
+      <workItem from="1572937366841" duration="1172000" />
     </task>
     <servers />
   </component>

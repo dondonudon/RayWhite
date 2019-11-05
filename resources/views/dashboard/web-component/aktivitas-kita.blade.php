@@ -115,6 +115,7 @@
 
 @section('script')
     <script src="{{ asset('vendor/quill/dist/quill.min.js') }}"></script>
+    <script src="{{ asset('vendor/ckeditor5-build-classic/ckeditor.js') }}"></script>
 
     <script src="{{ asset('vendor/filepond-master/filepond-plugin-image-preview.js') }}"></script>
     <script src="{{ asset('vendor/filepond-master/filepond-plugin-image-crop.js') }}"></script>
