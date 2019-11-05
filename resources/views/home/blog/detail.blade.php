@@ -5,7 +5,7 @@
         .jumbotron {
             /*color: white;*/
             background-image: url("{{ url('storage/'.$content->image) }}");
-            box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.74);
+            box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.8);
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -39,8 +39,8 @@
 
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <p class="text-center mt-sm-5">AKTIVITAS KITA</p>
-            <h1 class=" text-center">{{ $content->judul }}</h1>
+            <p class="text-center mt-sm-5" style="color: #575D5A">OUR ACTIVITY</p>
+            <h1 class=" text-center" style="color: #575D5A">{{ $content->judul }}</h1>
         </div>
     </div>
 

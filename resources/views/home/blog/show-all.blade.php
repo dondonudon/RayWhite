@@ -29,7 +29,7 @@
 {{--    </section>--}}
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="mt-sm-5 text-center">OUR ACTIVITY</h1>
+            <h1 class="mt-sm-5 text-center" style="color: #575D5A">OUR ACTIVITY</h1>
         </div>
     </div>
 

@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f162e72-3300-477c-a058-e56dd49ac36e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Home/LandingPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Home/LandingPage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/_partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/_partials/navbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/blog/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/blog/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/blog/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/blog/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/blog/show-all.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/blog/show-all.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/landing-page/about-us.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/landing-page/about-us.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/landing-page/aktivitas-kita.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/landing-page/aktivitas-kita.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/landing-page/hero-section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/landing-page/hero-section.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/landing-page/slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/landing-page/slider.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/our-team/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/our-team/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/rumah/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/rumah/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/rumah/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/rumah/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -247,7 +233,7 @@
       <workItem from="1572815782132" duration="27000" />
       <workItem from="1572832791535" duration="13635000" />
       <workItem from="1572854134349" duration="7578000" />
-      <workItem from="1572918383825" duration="2332000" />
+      <workItem from="1572918383825" duration="2681000" />
     </task>
     <servers />
   </component>

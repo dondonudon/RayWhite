@@ -31,7 +31,7 @@
 
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="mt-sm-5 text-center">FOR SALE</h1>
+            <h1 class="mt-sm-5 text-center" style="color: #575D5A">FOR SALE</h1>
         </div>
     </div>
 
