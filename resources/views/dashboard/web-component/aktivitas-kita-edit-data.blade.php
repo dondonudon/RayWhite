@@ -10,22 +10,22 @@
 
                     <div class="card card-primary card-outline">
                         <form id="formData">
-                            <input type="hidden" name="id" id="iID">
+                            <input type="hidden" name="id" id="iID" value="{{ $data->id }}">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="iJudul">Judul</label>
-                                    <input class="form-control" id="iJudul">
+                                    <input class="form-control" id="iJudul" value="{{ $data->judul }}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="iShortDesc">Ringkasan Singkat</label>
-                                    <input class="form-control" id="iShortDesc" maxlength="150">
+                                    <input class="form-control" id="iShortDesc" maxlength="150" value="{{ $data->short_desc }}">
                                     <small>Ringkasan aktivitas yang akan ditampilkan pada halaman depan (maksimal 150 karakter)</small>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="iKonten">Konten</label>
-                                    <div id="iKonten"></div>
+                                    <textarea id="iKonten" name="konten">{{ $data->content }}</textarea>
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -55,7 +55,8 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('vendor/quill/dist/quill.min.js') }}"></script>
+{{--    <script src="{{ asset('vendor/quill/dist/quill.min.js') }}"></script>--}}
+    <script src="{{ asset('vendor/ckeditor5-build-classic/ckeditor.js') }}"></script>
 
     <script>
         const headers = {
@@ -65,16 +66,16 @@
         const iID = document.getElementById('iID');
         const iJudul = document.getElementById('iJudul');
         const iShortDesc = document.getElementById('iShortDesc');
-        const iKonten = document.getElementById('iKonten');
-        let editor = new Quill(iKonten, {
-            placeholder: 'Ketik disini ...',
-            theme: 'snow',
-        });
-
-        iID.value = '{{ $data->id }}';
-        iJudul.value = '{{ $data->judul }}';
-        iShortDesc.value = '{{ $data->short_desc }}';
-        editor.root.innerHTML = '<?php echo $data->content ?>';
+        // const iKonten = document.getElementById('iKonten');
+        // let editor = new Quill(iKonten, {
+        //     placeholder: 'Ketik disini ...',
+        //     theme: 'snow',
+        // });
+        ClassicEditor
+            .create(document.querySelector('#iKonten'))
+            .catch( error => {
+                console.log(error);
+            });
 
         const formData = document.getElementById('formData');
 
@@ -116,14 +117,14 @@
         document.addEventListener('DOMContentLoaded', function (event) {
             formData.addEventListener('submit', function (e) {
                 e.preventDefault();
-                let data = 'id=' + iID.value + '&judul=' + iJudul.value + '&short_desc=' + iShortDesc.value + '&konten=' + editor.root.innerHTML;
+                let data = 'id=' + iID.value + '&judul=' + iJudul.value + '&short_desc=' + iShortDesc.value + '&konten=' + $('#iKonten').val();
 
                 kvAjax(
                     '{{ url('admin/web-component/aktivitas-kita/submit-edit-data') }}',
                     encodeURI(data),
                     cSubmit
                 );
-                // console.log(encodeURI(data));
+                // console.log(data);
             })
         })
     </script>

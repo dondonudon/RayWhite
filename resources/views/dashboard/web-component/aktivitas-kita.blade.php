@@ -78,10 +78,13 @@
                                             <input class="form-control" id="iShortDesc" maxlength="150">
                                             <small>Ringkasan aktivitas yang akan ditampilkan pada halaman depan (maksimal 150 karakter)</small>
                                         </div>
-
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg">
                                         <div class="form-group">
                                             <label for="iKonten">Konten</label>
-                                            <div id="iKonten"></div>
+                                            <textarea id="iKonten" name="iKonten"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -114,7 +117,7 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('vendor/quill/dist/quill.min.js') }}"></script>
+{{--    <script src="{{ asset('vendor/quill/dist/quill.min.js') }}"></script>--}}
     <script src="{{ asset('vendor/ckeditor5-build-classic/ckeditor.js') }}"></script>
 
     <script src="{{ asset('vendor/filepond-master/filepond-plugin-image-preview.js') }}"></script>
@@ -127,11 +130,21 @@
         const iType = document.getElementById('iType');
         const iJudul = document.getElementById('iJudul');
         const iShortDesc = document.getElementById('iShortDesc');
-        const iKonten = document.getElementById('iKonten');
-        let editor = new Quill(iKonten, {
-            placeholder: 'Ketik disini ...',
-            theme: 'snow',
-        });
+        let iKonten;
+        // const iKonten = document.getElementById('iKonten');
+        // let editor = new Quill(iKonten, {
+        //     placeholder: 'Ketik disini ...',
+        //     theme: 'snow',
+        // });
+
+        ClassicEditor
+            .create(document.querySelector('#iKonten'))
+            .then( konten => {
+                iKonten = konten;
+            })
+            .catch( error => {
+                console.log(error);
+            });
 
         FilePond.registerPlugin(
             FilePondPluginImagePreview,
@@ -159,7 +172,7 @@
                     formData.append(fieldName, file, file.name);
                     formData.append('judul', iJudul.value);
                     formData.append('short_desc', iShortDesc.value);
-                    formData.append('konten', editor.root.innerHTML);
+                    formData.append('konten', $('#iKonten').val());
 
                     const request = new XMLHttpRequest();
                     request.open('POST','{{ url('admin/web-component/aktivitas-kita/add') }}');
@@ -239,7 +252,7 @@
             iType.value = 'new';
             iJudul.value = '';
             iShortDesc.value = '';
-            editor.setText('');
+            $('iKonten').val('');
         }
 
         function serialize(data) {
