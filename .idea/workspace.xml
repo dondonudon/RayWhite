@@ -2,10 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f162e72-3300-477c-a058-e56dd49ac36e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/vendor/filepond-master/filepond-plugin-file-validate-type/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/filepond-master/filepond-plugin-file-validate-type/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/filepond-master/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.esm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/filepond-master/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.esm.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/filepond-master/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/filepond-master/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/filepond-master/filepond-plugin-file-validate-type/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/WebInputRumah.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/WebInputRumah.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Home/RumahDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Home/RumahDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/web-component/input-rumah-dijual-edit-gambar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/web-component/input-rumah-dijual-edit-gambar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/web-component/input-rumah-dijual.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/web-component/input-rumah-dijual.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/rumah/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/rumah/detail.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +124,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/vendor/filepond-master" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -125,14 +136,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/vendor" />
-      <recent name="$PROJECT_DIR$/public/vendor/glide" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Dashboard" />
       <recent name="$PROJECT_DIR$/resources/views/dashboard/system-utility" />
       <recent name="$PROJECT_DIR$/resources/views/dashboard/master-data" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/vendor/filepond-master" />
+      <recent name="$PROJECT_DIR$/public/vendor" />
+      <recent name="$PROJECT_DIR$/public/vendor/glide" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -243,6 +255,9 @@
       <workItem from="1573084376109" duration="72000" />
       <workItem from="1573704450974" duration="1771000" />
       <workItem from="1574402804831" duration="369000" />
+      <workItem from="1574818616521" duration="4221000" />
+      <workItem from="1574834760343" duration="8979000" />
+      <workItem from="1574905219928" duration="5092000" />
     </task>
     <servers />
   </component>

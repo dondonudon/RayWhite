@@ -109,15 +109,18 @@
                                                 @endforeach
                                             </select>
                                         </div>
-
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="iNamaRumah">Nama Rumah</label>
-                                            <input class="form-control" id="iNamaRumah">
+                                            <input class="form-control" id="iNamaRumah" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="iLokasi">Lokasi</label>
-                                            <input class="form-control" id="iLokasi">
+                                            <input class="form-control" id="iLokasi" required>
                                         </div>
 
                                         <div class="form-group">
@@ -127,47 +130,48 @@
 
                                         <div class="form-group">
                                             <label for="iHarga">Harga</label>
-                                            <input class="form-control" id="iHarga">
+                                            <input class="form-control" id="iHarga" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="iLuasTanah">Luas Tanah</label>
-                                            <input class="form-control" id="iLuasTanah">
+                                            <input class="form-control" id="iLuasTanah" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="iLuasBangunan">Luas Bangunan</label>
-                                            <input class="form-control" id="iLuasBangunan">
+                                            <input class="form-control" id="iLuasBangunan" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="iLantai">Lantai</label>
-                                            <input class="form-control" id="iLantai">
+                                            <input class="form-control" id="iLantai" required>
                                         </div>
-
+                                    </div>
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="iKamarTidur">Kamar Tidur</label>
-                                            <input class="form-control" id="iKamarTidur">
+                                            <input class="form-control" id="iKamarTidur" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="iKamarMandi">Kamar Mandi</label>
-                                            <input class="form-control" id="iKamarMandi">
+                                            <input class="form-control" id="iKamarMandi" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="iDapurBersih">Dapur Bersih</label>
-                                            <input class="form-control" id="iDapurBersih">
+                                            <input class="form-control" id="iDapurBersih" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="iDapurKotor">Dapur Kotor</label>
-                                            <input class="form-control" id="iDapurKotor">
+                                            <input class="form-control" id="iDapurKotor" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="iTaman">Taman</label>
-                                            <input class="form-control" id="iTaman">
+                                            <input class="form-control" id="iTaman" required>
                                         </div>
 
                                         <div class="form-group">
@@ -187,12 +191,12 @@
 
                                         <div class="form-group">
                                             <label for="iListrik">Listrik</label>
-                                            <input class="form-control" id="iListrik">
+                                            <input class="form-control" id="iListrik" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="iFurniture">Furniture</label>
-                                            <input class="form-control" id="iFurniture">
+                                            <input class="form-control" id="iFurniture" required>
                                         </div>
                                     </div>
                                 </div>
@@ -223,6 +227,7 @@
 
 @section('script')
     <script src="{{ asset('vendor/filepond-master/filepond-plugin-image-preview.js') }}"></script>
+    <script src="{{ asset('vendor/filepond-master/filepond-plugin-file-validate-type.js') }}"></script>
     <script src="{{ asset('vendor/filepond-master/filepond-plugin-image-crop.js') }}"></script>
     <script src="{{ asset('vendor/filepond-master/filepond-plugin-image-resize.js') }}"></script>
     <script src="{{ asset('vendor/filepond-master/filepond-plugin-image-transform.js') }}"></script>
@@ -251,11 +256,13 @@
 
         FilePond.registerPlugin(
             FilePondPluginImagePreview,
+            FilePondPluginFileValidateType,
             FilePondPluginImageResize,
             FilePondPluginImageCrop,
             FilePondPluginImageTransform,
         );
         FilePond.setOptions({
+            // acceptedFileTypes: ['image/jpeg'],
             allowImageTransform: true,
             allowImageResize: true,
             imageResizeMode: 'cover',
@@ -305,15 +312,20 @@
                         request.onload = function () {
                             if (request.status >= 200 && request.status < 300) {
                                 load(request.responseText);
-                                console.log(request.responseText);
-                                fetchData(setDisplayData);
-                                Swal.fire({
-                                    type: 'success',
-                                    title: 'Tersimpan',
-                                    showConfirmButton: false,
-                                    timer: 2000
-                                });
+                                if (request.responseText === 'success') {
+                                    fetchData(setDisplayData);
+                                    Swal.fire({
+                                        type: 'success',
+                                        title: 'Tersimpan',
+                                        showConfirmButton: false,
+                                        timer: 2000
+                                    });
+                                } else {
+                                    console.log(request.responseText);
+                                    error('gagal');
+                                }
                             } else {
+                                console.log(request.response);
                                 error('gagal');
                             }
                         };

@@ -15,6 +15,9 @@
 @endsection
 
 @section('content')
+    <script>
+        console.log(JSON.parse('{!! json_encode($listGambar) !!}'));
+    </script>
 {{--    <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('{{ url('storage/'.$content->gambar) }}');" data-stellar-background-ratio="0.5">--}}
 {{--        <div class="overlay" style="background-color: lightgray; opacity: 0.5;"></div>--}}
 {{--        <div class="container">--}}
