@@ -34,6 +34,7 @@ Route::get('admin', 'Dashboard\overview@index');
 
 Route::get('admin/login', 'Dashboard\login@index');
 Route::post('admin/login/submit', 'Dashboard\login@submit');
+Route::get('admin/session-flush', 'Dashboard\login@sessionFlush');
 
 Route::get('admin/system-utility/menu-group', 'Dashboard\SysMenuGroupController@index');
 Route::post('admin/system-utility/menu-group/list', 'Dashboard\SysMenuGroupController@list');

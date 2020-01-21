@@ -66,13 +66,13 @@ class WebInputRumah extends Controller
 
     public function add(Request $request) {
         $gambar = $request->file('filepond');
-        $extension = $request->file('filepond')->getClientOriginalExtension();
+        $extension = $gambar[0]->getClientOriginalExtension();
 
         try {
             $id = Uuid::uuid1()->toString();
 
             $filename = $id.'.'.$extension;
-            Storage::putFileAs('public', $gambar, $filename);
+            Storage::putFileAs('public',$gambar[0],$filename);
 
             $rumah = new webRumahDijual();
             $rumah->id_lister = $request->id_lister;
@@ -96,10 +96,10 @@ class WebInputRumah extends Controller
             $rumah->listrik = $request->listrik;
             $rumah->furniture = $request->furniture;
             $rumah->save();
+            return 'success';
         } catch (\Exception $ex) {
-            dd('Exception Block',$ex);
+            dd($request->filepond,$ex);
         }
-        return 'success';
     }
 
     public function edit() {}

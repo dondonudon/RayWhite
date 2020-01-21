@@ -41,4 +41,13 @@ class login extends Controller
         }
         return $result;
     }
+
+    public function sessionFlush(Request $request) {
+        try {
+            Session::flush();
+            return 'success';
+        } catch (\Exception $ex) {
+            return response()->json($ex);
+        }
+    }
 }

@@ -211,7 +211,7 @@
                         if (request.status >= 200 && request.status < 300) {
                             load(request.responseText);
                             console.log(request.responseText);
-                            if (request.responseText === 'success') {60785
+                            if (request.responseText === 'success') {
                                 Swal.fire({
                                     type: 'success',
                                     title: 'Tersimpan',
