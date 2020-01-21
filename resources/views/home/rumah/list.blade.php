@@ -275,7 +275,7 @@
                                 '                                            <div class="col">\n' +
                                 '                                                <div class="row">\n' +
                                 '                                                    <div class="col text-truncate">\n' +
-                                '                                                        Marketer:<strong class="text-gray-dark"> '+v.marketer+'</strong>\n' +
+                                '                                                        Marketing Executive:<strong class="text-gray-dark"> '+v.marketer+'</strong>\n' +
                                 '                                                    </div>\n' +
                                 '                                                </div>\n' +
                                 '                                            </div>\n' +
